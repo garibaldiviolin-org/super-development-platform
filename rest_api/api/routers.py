@@ -1,8 +1,7 @@
 from typing import Annotated
 
-from fastapi import APIRouter, Query
-
 from api import databases, models
+from fastapi import APIRouter, Query
 
 router = APIRouter()
 
