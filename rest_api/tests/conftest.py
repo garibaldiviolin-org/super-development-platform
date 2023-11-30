@@ -2,7 +2,6 @@ import asyncio
 
 import aiocouch
 import pytest
-
 from api import databases, settings
 
 COUCHDB_TEST_DATABASE = "testing_database"

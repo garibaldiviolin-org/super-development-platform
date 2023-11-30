@@ -1,7 +1,6 @@
 # main file
-from fastapi import FastAPI
-
 from api.routers import router as api_router
+from fastapi import FastAPI
 from security.routers import router as security_router
 
 app = FastAPI()

@@ -1,8 +1,7 @@
 from aiocouch import CouchDB
 from aiocouch import exception as aiocouch_exceptions
-from fastapi import HTTPException
-
 from api import models, settings
+from fastapi import HTTPException
 
 
 def format_item_id(item_id: int):
