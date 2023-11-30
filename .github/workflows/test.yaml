@@ -1,0 +1,50 @@
+name: Run tests
+on:
+  pull_request:
+  merge_group:
+
+jobs:
+  # Label of the container job
+  container-job:
+    runs-on: ubuntu-latest
+
+    # Service containers to run with `container-job`
+    services:
+      # Label used to access the service container
+      couchdb:
+        # Docker Hub image
+        image: couchdb:3.3.2
+        # Provide user and password for couchdb
+        env:
+          COUCHDB_USER: admin
+          COUCHDB_PASSWORD: password123
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Sync with main
+        run: |
+          git config --global user.email "you@example.com"
+          git config --global user.name "Your Name"
+          git fetch origin main:main
+          git rebase main
+        shell: bash
+
+      - name: Start server by running docker-compose
+        run: make up
+        shell: bash
+
+      - name: Run pre-commit on all files
+        run: pre-commit run -a -v
+        shell: bash
+
+      - name: Call tests
+        run: make test
+        shell: bash
+
+      - name: Install pre-commit
+        run: pip install pre-commit
+        shell: bash
