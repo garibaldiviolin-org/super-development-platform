@@ -1,7 +1,6 @@
 name: Build and push Docker Hub image
 on:
-  pull_request:
-  merge_group:
+  tags:
 
 jobs:
   # Label of the container job
