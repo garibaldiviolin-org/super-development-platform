@@ -25,3 +25,5 @@ jobs:
           name: ${{ steps.tag_version.outputs.new_tag }}
           body: ${{ steps.tag_version.outputs.changelog }}
           commit: main
+          makeLatest: "latest"
+          generateReleaseNotes: true
