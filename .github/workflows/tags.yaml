@@ -2,7 +2,7 @@ name: Build and push Docker Hub image
 on:
   create:
     tags:
-      - '*'
+      - '**'
 
 jobs:
   # Label of the container job
