@@ -1,6 +1,5 @@
 name: Build and push Docker Hub image
 on:
-  push:
   create:
     tags:
       - '*'
