@@ -1,9 +1,7 @@
 name: Build and push Docker Hub image
 on:
-  workflow_run:
-    workflows: [Create tag and release]
-    types:
-      - completed
+  release:
+    types: [released]
 
 jobs:
   # Label of the container job
