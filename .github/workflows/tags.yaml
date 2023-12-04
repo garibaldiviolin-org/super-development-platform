@@ -1,11 +1,11 @@
 name: Build and push Docker Hub image
 on:
-  release:
-    types: [released]
+  create:
 
 jobs:
   # Label of the container job
   container-job:
+    if: ${{ startsWith(github.ref, 'refs/tags/v') }}
     runs-on: ubuntu-latest
 
     steps:
