@@ -3,7 +3,6 @@ on:
   create:
     tags:
       - '*'
-    workflow_dispatch:
 
 jobs:
   # Label of the container job
